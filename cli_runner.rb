@@ -28,4 +28,18 @@ class CLIRunner
   end
   
 
+  #display the menu
+
+  def display_menu
+    puts "Menu: ☕️"
+    puts "1. Add Meal to Pantry: "
+    puts "2. View all saved meals: "
+    puts "3. Search Meals by Category (Breakfast/Lunch/Dinner/Snack: )"
+    puts "4. Search Meals by Ingredients (eg. tomatoe, lettuce): "
+    puts "5. Exit Menu"
+    puts "Enter you choice: "
+  end
+  
+
+
 end
