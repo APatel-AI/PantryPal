@@ -29,4 +29,22 @@ class MealPlanner
       puts "Category: #{meal[:category]}, Dish Name: #{meal[:dish_name]}, Ingredients: #{meal[:ingredients].join(', ')}"
     end
   end
+
+
+
+  #category_search: a function that allows users to search meals by category of BREAKFAST, LUNCH, DINNER, SNACK
+
+  def category_search(category)
+
+    matching_meals = []
+
+    @meals.each do |meal|
+      if meal[:category].downcase == category.downcase
+        matching_meals.push(meal)
+      end
+    end
+
+    #display the result
+    display_search_results(matching_meals, "Category: #{category}")
+  end
 end
