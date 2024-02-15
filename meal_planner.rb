@@ -65,4 +65,21 @@ class MealPlanner
     #display the result
     display_search_results(matching_meals, "Ingredients: #{ingredients.join(', ')}")
   end
+
+
+  def display_search_results(meals, search_criteria)
+
+    #check for stored meals in the array based on the search
+    #if empty
+    if meals.empty? 
+      #display message
+      puts "No Meals found with #{search_criteria}."
+    else
+      puts "Matching Meals with #{search_criteria}:"
+
+      meals.each do |meal|
+        puts "Category: #{meal[:category]}, Dish Name: #{meal[:dish_name]}, Ingredients: #{meal[:ingredients].join(', ')}"
+      end
+    end
+  end
 end
