@@ -48,11 +48,11 @@ class CLIRunner
     category = gets.chomp
 
     #meal name
-    pp "Enter Dish Name: "
+    puts "Enter Dish Name: "
     dish_name = gets.chomp
 
     #ingredients 
-    pp "Enter Ingredients (separate with comma): "
+    puts "Enter Ingredients (separate with comma): "
 
     
     ingredients = gets.chomp.split(',').map{|ingredient| ingredient.chomp.strip}
@@ -71,7 +71,7 @@ class CLIRunner
 
   #Enter Category prompt
   def search_by_category_prompt
-    pp "Enter Category: "
+    puts "Enter Category: "
     category = gets.chomp
     @meal_planner.category_search(category)
   end
@@ -80,7 +80,7 @@ class CLIRunner
   #search by ingredients 
 
   def search_by_ingredients_prompt
-    pp "Enter Ingredients (comma-separated): "
+    puts "Enter Ingredients (comma-separated): "
     ingredients = gets.chomp.split(',').map{|ingredient| ingredient.chomp.strip}
 
     @meal_planner.ingredients_search(ingredients)
