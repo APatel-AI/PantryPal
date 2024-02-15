@@ -1,6 +1,6 @@
 class MealPlanner
   
-  def initalize
+  def initialize
     # holder
     @meals = [] 
   end
@@ -83,3 +83,4 @@ class MealPlanner
     end
   end
 end
+
