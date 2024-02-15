@@ -3,6 +3,9 @@ class MealPlanner
   def initialize
     # holder
     @meals = [] 
+    
+    #display welcom message
+    puts "WELCOME TO PANTRYPAL 🍽"
   end
 
   #add meal function: users can add meals to the list based on Category, Dish Name and Ingredients
@@ -16,7 +19,7 @@ class MealPlanner
     @meals.push(meal)
 
     #display success message to screen 
-    puts "🍽 added successfully !"
+    puts "✅ added successfully !"
   end
 
 
@@ -26,7 +29,9 @@ class MealPlanner
     puts "All Meals:"
 
     @meals.each do |meal|
-      puts "Category: #{meal[:category]}, Dish Name: #{meal[:dish_name]}, Ingredients: #{meal[:ingredients].join(', ')}"
+      puts "Category: #{meal[:category]}"
+      puts "Dish Name: #{meal[:dish_name]}"
+      puts "Ingredients: #{meal[:ingredients].join(', ')}"
     end
   end
 
@@ -56,8 +61,12 @@ class MealPlanner
 
     matching_meals = []
 
+    ingredients_lower = ingredients.map(&:downcase)
     @meals.each do |meal|
-      if meal[:ingredients].downcase == ingredients.downcase
+
+      meal_ingredients = meal[:ingredients].map(&:downcase)
+
+      if (meal_ingredients & ingredients_lower).any?
         matching_meals.push(meal)
       end
     end
@@ -83,4 +92,3 @@ class MealPlanner
     end
   end
 end
-
