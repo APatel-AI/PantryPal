@@ -47,4 +47,22 @@ class MealPlanner
     #display the result
     display_search_results(matching_meals, "Category: #{category}")
   end
+
+
+
+  #category function: allows users to search meals by ingredients
+
+  def ingredients_search(ingredients)
+
+    matching_meals = []
+
+    @meals.each do |meal|
+      if meal[:ingredients].downcase == ingredients.downcase
+        matching_meals.push(meal)
+      end
+    end
+
+    #display the result
+    display_search_results(matching_meals, "Ingredients: #{ingredients.join(', ')}")
+  end
 end
