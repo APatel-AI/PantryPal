@@ -39,7 +39,53 @@ class CLIRunner
     puts "5. Exit Menu"
     puts "Enter you choice: "
   end
-  
+
+
+  #add meal function (prompts)
+  def add_meal_prompt
+    #category
+    puts "Enter Category (Breakfast, Lunch, Dinner, Snack): "
+    category = gets.chomp
+
+    #meal name
+    pp "Enter Dish Name: "
+    dish_name = gets.chomp
+
+    #ingredients 
+    pp "Enter Ingredients (separate with comma): "
+
+    
+    ingredients = gets.chomp.split(',').map{|ingredient| ingredient.chomp.strip}
+
+    #add to meal planner
+    @meal_planner.add_meal(category, dish_name, ingredients)
+
+  end
+
+
+  #display all saved meals
+  def list_meals_prompt
+    @meal_planner.list_meals
+  end
+
+
+  #Enter Category prompt
+  def search_by_category_prompt
+    pp "Enter Category: "
+    category = gets.chomp
+    @meal_planner.category_search(category)
+  end
+
+
+  #search by ingredients 
+
+  def search_by_ingredients_prompt
+    pp "Enter Ingredients (comma-separated): "
+    ingredients = gets.chomp.split(',').map{|ingredient| ingredient.chomp.strip}
+
+    @meal_planner.ingredients_search(ingredients)
+
+  end
 
 
 end
